@@ -4,5 +4,5 @@
     <item android:id="@+id/logout"
         android:icon="@drawable/ic_exit"
         android:title="Cerrar Sesion"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="always" />
 </menu>
