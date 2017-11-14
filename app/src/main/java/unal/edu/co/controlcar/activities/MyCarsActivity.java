@@ -9,28 +9,40 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import unal.edu.co.controlcar.R;
+import unal.edu.co.controlcar.models.Car;
 
 public class MyCarsActivity extends AppCompatActivity{
 
     private GoogleApiClient mGoogleApiClient;
 
     private DatabaseReference database;
+    private FirebaseAuth firebaseAuth;
 
     private ListView listViewCars;
+    List<Car> cars;
     private FloatingActionButton fabCreate;
 
     public void onCreate(Bundle savedInstanceState) {
@@ -38,7 +50,7 @@ public class MyCarsActivity extends AppCompatActivity{
         setContentView(R.layout.activity_mycars);
         setTitle("Control Car Owner");
 
-
+        firebaseAuth = FirebaseAuth.getInstance();
         fabCreate = (FloatingActionButton) findViewById(R.id.fab_create);
         fabCreate.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -66,6 +78,29 @@ public class MyCarsActivity extends AppCompatActivity{
 
         mGoogleApiClient.connect();
 
+        loadCars();
+    }
+
+    private void loadCars(){
+        Query queryCars = database.child("Cars").orderByChild("ownerEmail").equalTo(firebaseAuth.getCurrentUser().getEmail());
+        queryCars.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    cars = new ArrayList<Car>();
+                    for(DataSnapshot carsSnapshot: dataSnapshot.getChildren()){
+                        Car car = carsSnapshot.getValue(Car.class);
+                        cars.add(car);
+                    }
+
+                    Log.d("NumeroCarros", Integer.toString(cars.size()));
+                    ArrayAdapter<Car> adapter = new ArrayAdapter<Car>(MyCarsActivity.this, android.R.layout.simple_list_item_1, cars);
+                    listViewCars.setAdapter(adapter);
+                }
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+                    Log.d("User>>createdCourse",databaseError.getMessage()+" details:"+databaseError.getDetails());
+                }
+            });
     }
 
     @Override

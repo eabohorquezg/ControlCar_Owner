@@ -53,6 +53,9 @@ public class AddCarActivity  extends AppCompatActivity {
                 newCar.setBrand(brand.getText().toString());
                 newCar.setOwnerEmail(firebaseAuth.getCurrentUser().getEmail());
 
+                //TODO DO
+                //Validar que el carro no exista
+
                 database.child("Cars").child(newCar.getPlate()).setValue(newCar);
                 finish();
 
