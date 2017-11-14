@@ -7,9 +7,12 @@ package unal.edu.co.controlcar.models;
 public class Car {
 
     private String plate;
-    private String ownerName;
+    private String ownerEmail;
     private String model;
     private String brand;
+
+    public Car() {
+    }
 
     public String getPlate() {
         return plate;
@@ -19,12 +22,12 @@ public class Car {
         this.plate = plate;
     }
 
-    public String getOwnerName() {
-        return ownerName;
+    public String getOwnerEmail() {
+        return ownerEmail;
     }
 
-    public void setOwnerName(String ownerName) {
-        this.ownerName = ownerName;
+    public void setOwnerEmail(String ownerEmail) {
+        this.ownerEmail = ownerEmail;
     }
 
     public String getModel() {

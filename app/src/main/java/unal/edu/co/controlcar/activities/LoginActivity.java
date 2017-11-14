@@ -80,7 +80,7 @@ public class LoginActivity extends AppCompatActivity {
         //Current user
         if (mAuth.getCurrentUser() != null) {
             finish();
-            startActivity(new Intent(this, TravelActivity.class));
+            startActivity(new Intent(this, MyCarsActivity.class));
         }
     }
 
@@ -118,7 +118,7 @@ public class LoginActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             mGoogleApiClient.disconnect();
                             finish();
-                            startActivity(new Intent(LoginActivity.this, TravelActivity.class));
+                            startActivity(new Intent(LoginActivity.this, MyCarsActivity.class));
                         } else {
                             Snackbar.make(txtAccept, R.string.firebase_auth_fail,
                                     Snackbar.LENGTH_INDEFINITE).show();

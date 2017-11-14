@@ -16,7 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".activities.TravelActivity"
+            android:name=".activities.MyCarsActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activities.LoginActivity"
@@ -29,6 +29,10 @@
         </activity>
         <activity
             android:name=".activities.ExplorerActivity"
+            android:noHistory="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.AddCarActivity"
             android:noHistory="true"
             android:screenOrientation="portrait" />
 
