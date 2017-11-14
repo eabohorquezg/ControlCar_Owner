@@ -14,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -79,6 +80,17 @@ public class MyCarsActivity extends AppCompatActivity{
         mGoogleApiClient.connect();
 
         loadCars();
+
+        listViewCars.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                String plate = cars.get(i).getPlate();
+                Intent intent = new Intent(getApplicationContext(),CarDetailActivity.class);
+                intent.putExtra("car_plate", plate);
+                startActivity(intent);
+            }
+        });
+
     }
 
     private void loadCars(){
@@ -98,7 +110,7 @@ public class MyCarsActivity extends AppCompatActivity{
                 }
                 @Override
                 public void onCancelled(DatabaseError databaseError) {
-                    Log.d("User>>createdCourse",databaseError.getMessage()+" details:"+databaseError.getDetails());
+
                 }
             });
     }
