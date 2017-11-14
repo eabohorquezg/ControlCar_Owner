@@ -19,6 +19,20 @@
         android:textSize="8pt"
         android:textColor="#000000"/>
 
+    <TextView
+            android:id="@+id/list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="LISTA DE VIAJES"
+            android:textSize="8pt"
+            android:textColor="#000000"/>
+
+    <ListView
+        android:id="@+id/list_travels"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent" />
+
     </LinearLayout>
 
 

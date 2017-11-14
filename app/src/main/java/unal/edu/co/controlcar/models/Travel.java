@@ -14,6 +14,15 @@ public class Travel {
     private String plate;
     private String driverName;
 
+    public Travel(){
+
+    }
+
+    @Override
+    public String toString() {
+        return initHour+"\n"+driverName+"\n"+endTime;
+    }
+
     public String getEndTime() {
         return endTime;
     }
