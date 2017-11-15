@@ -53,6 +53,15 @@ public class CarDetailActivity extends AppCompatActivity {
 
         loadCarDetail();
 
+        listViewTravels.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(getApplicationContext(),AlertsActivity.class);
+                intent.putExtra("key", travels.get(i).getId());
+                startActivity(intent);
+            }
+        });
+
     }
 
     public void loadCarDetail(){
@@ -63,7 +72,7 @@ public class CarDetailActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 car = dataSnapshot.getValue(Car.class);
-                plate.setText(car.getPlate());
+                //plate.setText(car.getPlate());
                 Log.d("CarDetail", car.getPlate());
             }
 
@@ -84,7 +93,6 @@ public class CarDetailActivity extends AppCompatActivity {
                 for (DataSnapshot travelSnapshot : dataSnapshot.getChildren()){
                     Travel travel = travelSnapshot.getValue(Travel.class);
                     if( travel.getPlate().equalsIgnoreCase(car.getPlate()) ){
-                        Toast.makeText(getApplicationContext(), travel.getPlate(), Toast.LENGTH_LONG).show();
                         travels.add(travel);
                     }
                 }

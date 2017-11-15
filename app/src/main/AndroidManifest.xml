@@ -47,6 +47,7 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBJcmfk5UTWodCo3kjqkMQQYjNb7g6G88E" />
 
+        <activity android:name=".activities.AlertsActivity"></activity>
     </application>
 
 </manifest>

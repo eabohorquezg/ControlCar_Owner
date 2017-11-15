@@ -13,6 +13,17 @@ public class Alert {
     private double longitude;
     private int holeLevel;
 
+    public Alert(){
+
+    }
+
+    @Override
+    public String toString() {
+        return description+"\n"+"Fecha: "+initHour+"\n"+"Nivel de hueco: "+
+                holeLevel+"\n"+"Velocidad: "+velocity+"\n"+"Latitud: "+latitude+"\n"+"Longitud: "+longitude;
+    }
+
+    /*
     public Alert(String initHour,String description, double velocity, double latitude, double longitude, int holeLevel) {
         this.initHour = initHour;
         this.description = description;
@@ -20,7 +31,7 @@ public class Alert {
         this.latitude = latitude;
         this.longitude = longitude;
         this.holeLevel = holeLevel;
-    }
+    }*/
 
     public String getInitHour() {
         return initHour;
