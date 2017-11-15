@@ -17,13 +17,7 @@ public class ExplorerActivity extends AppCompatActivity {
         String url = getIntent().getStringExtra("url");
         String title = getIntent().getStringExtra("title");
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setTitle(title);
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        }
-
+        setTitle(title);
         setUrl(url);
     }
 

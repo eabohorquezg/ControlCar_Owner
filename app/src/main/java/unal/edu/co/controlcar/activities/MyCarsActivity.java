@@ -63,9 +63,6 @@ public class MyCarsActivity extends AppCompatActivity{
         listViewCars = (ListView) findViewById(R.id.list_cars);
         database = FirebaseDatabase.getInstance().getReference();
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()

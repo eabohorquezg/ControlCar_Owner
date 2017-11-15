@@ -40,6 +40,7 @@ public class AlertsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alerts);
+        setTitle("Alertas");
 
         database = FirebaseDatabase.getInstance();
         listViewAlerts = (ListView) findViewById(R.id.list_alerts);

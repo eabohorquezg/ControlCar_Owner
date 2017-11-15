@@ -36,7 +36,6 @@ public class CarDetailActivity extends AppCompatActivity {
     private FirebaseDatabase database;
     List<Travel> travels;
     private String car_plate;
-    private TextView plate;
     private Car car;
     private ListView listViewTravels;
 
@@ -46,9 +45,10 @@ public class CarDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detailcar);
         Bundle bundle = getIntent().getExtras();
         car_plate = bundle.getString("car_plate");
+        setTitle("Viajes de: " + car_plate);
+
         database = FirebaseDatabase.getInstance();
 
-        plate = (TextView)findViewById(R.id.plate);
         listViewTravels = (ListView) findViewById(R.id.list_travels);
 
         loadCarDetail();
@@ -72,7 +72,6 @@ public class CarDetailActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 car = dataSnapshot.getValue(Car.class);
-                //plate.setText(car.getPlate());
                 Log.d("CarDetail", car.getPlate());
             }
 
