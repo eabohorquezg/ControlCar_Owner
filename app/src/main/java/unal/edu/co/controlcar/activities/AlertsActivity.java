@@ -60,7 +60,7 @@ public class AlertsActivity extends AppCompatActivity {
                     Alert alert = alertSnapshot.getValue(Alert.class);
                     alerts.add(alert);
                 }
-                ArrayAdapter<Alert> adapter = new ArrayAdapter<Alert>(AlertsActivity.this, android.R.layout.simple_list_item_1,alerts);
+                ArrayAdapter<Alert> adapter = new ArrayAdapter<Alert>(AlertsActivity.this, R.layout.custom_list_alerts, R.id.list_name, alerts);
                 listViewAlerts.setAdapter(adapter);
 
             }

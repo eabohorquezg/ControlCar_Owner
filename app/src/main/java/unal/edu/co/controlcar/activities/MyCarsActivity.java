@@ -8,7 +8,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -102,7 +101,7 @@ public class MyCarsActivity extends AppCompatActivity{
                     }
 
                     Log.d("NumeroCarros", Integer.toString(cars.size()));
-                    ArrayAdapter<Car> adapter = new ArrayAdapter<Car>(MyCarsActivity.this, R.layout.custom_list, R.id.list_name, cars);
+                    ArrayAdapter<Car> adapter = new ArrayAdapter<Car>(MyCarsActivity.this, R.layout.custom_list_cars, R.id.list_name, cars);
                     listViewCars.setAdapter(adapter);
                 }
                 @Override

@@ -95,7 +95,7 @@ public class CarDetailActivity extends AppCompatActivity {
                         travels.add(travel);
                     }
                 }
-                ArrayAdapter<Travel> adapter = new ArrayAdapter<Travel>(CarDetailActivity.this, android.R.layout.simple_list_item_1,travels);
+                ArrayAdapter<Travel> adapter = new ArrayAdapter<Travel>(CarDetailActivity.this, R.layout.custom_list_travels, R.id.list_name, travels);
                 listViewTravels.setAdapter(adapter);
             }
 
