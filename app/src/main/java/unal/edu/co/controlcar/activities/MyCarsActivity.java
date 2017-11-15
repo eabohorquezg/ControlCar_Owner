@@ -102,7 +102,7 @@ public class MyCarsActivity extends AppCompatActivity{
                     }
 
                     Log.d("NumeroCarros", Integer.toString(cars.size()));
-                    ArrayAdapter<Car> adapter = new ArrayAdapter<Car>(MyCarsActivity.this, android.R.layout.simple_list_item_1, cars);
+                    ArrayAdapter<Car> adapter = new ArrayAdapter<Car>(MyCarsActivity.this, R.layout.custom_list, R.id.list_name, cars);
                     listViewCars.setAdapter(adapter);
                 }
                 @Override
