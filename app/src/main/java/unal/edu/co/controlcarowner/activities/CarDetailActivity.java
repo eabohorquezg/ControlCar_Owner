@@ -14,6 +14,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -75,6 +76,31 @@ public class CarDetailActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 car = dataSnapshot.getValue(Car.class);
+                Log.d("Deatil-------------->",car.getPlate());
+                //DatabaseReference mytravel = database.getReference("Travels/");
+                DatabaseReference mytravel = database.getReference();
+                Query queryTravels = mytravel.child("Travels").orderByChild("plate").equalTo(car.getPlate());
+                queryTravels.addValueEventListener(new ValueEventListener() {
+                //mytravel.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        travels = new ArrayList<>();
+                        for (DataSnapshot travelSnapshot : dataSnapshot.getChildren()) {
+                            Travel travel = travelSnapshot.getValue(Travel.class);
+                            if (travel.getPlate().equalsIgnoreCase(car.getPlate())) {
+                                travels.add(travel);
+                            }
+                        }
+
+                        ArrayAdapter<Travel> adapter = new ArrayAdapter<>(CarDetailActivity.this, R.layout.custom_list_travels, R.id.list_name, travels);
+                        listViewTravels.setAdapter(adapter);
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError error) {
+                        Log.w("Error Firebase DB", "Failed to read value.", error.toException());
+                    }
+                });
             }
 
             @Override
@@ -85,28 +111,7 @@ public class CarDetailActivity extends AppCompatActivity {
 
 
         //Travel travel;
-        DatabaseReference mytravel = database.getReference("Travels/");
-        mytravel.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
 
-                travels = new ArrayList<>();
-                for (DataSnapshot travelSnapshot : dataSnapshot.getChildren()) {
-                    Travel travel = travelSnapshot.getValue(Travel.class);
-                    if (travel.getPlate().equalsIgnoreCase(car.getPlate())) {
-                        travels.add(travel);
-                    }
-                }
-
-                ArrayAdapter<Travel> adapter = new ArrayAdapter<>(CarDetailActivity.this, R.layout.custom_list_travels, R.id.list_name, travels);
-                listViewTravels.setAdapter(adapter);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError error) {
-                Log.w("Error Firebase DB", "Failed to read value.", error.toException());
-            }
-        });
     }
 
     @Override
