@@ -13,9 +13,11 @@ public class Alert {
     private double longitude;
     private int holeLevel;
 
+
     public Alert(){
 
     }
+
 
     @Override
     public String toString() {
