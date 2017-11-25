@@ -6,6 +6,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -34,6 +35,8 @@ public class AlertsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alerts);
 
+        //setTitle("Alertas");
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {
@@ -53,9 +56,10 @@ public class AlertsActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
-                alerts = new ArrayList<>();
+                alerts = new ArrayList<Alert>();
                 for (DataSnapshot alertSnapshot : dataSnapshot.getChildren()){
                     Alert alert = alertSnapshot.getValue(Alert.class);
+                    //Toast.makeText(getApplicationContext(), alert.getDescription(), Toast.LENGTH_SHORT).show();
                     alerts.add(alert);
                 }
                 ArrayAdapter<Alert> adapter = new ArrayAdapter<Alert>(AlertsActivity.this, R.layout.custom_list_alerts, R.id.list_name, alerts);
