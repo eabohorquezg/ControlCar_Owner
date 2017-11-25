@@ -35,7 +35,7 @@ import java.util.List;
 import unal.edu.co.controlcarowner.R;
 import unal.edu.co.controlcarowner.models.Car;
 
-public class MyCarsActivity extends AppCompatActivity{
+public class MyCarsActivity extends AppCompatActivity {
 
     private GoogleApiClient mGoogleApiClient;
 
@@ -49,7 +49,6 @@ public class MyCarsActivity extends AppCompatActivity{
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_cars);
-        setTitle("Control Car Owner");
 
         firebaseAuth = FirebaseAuth.getInstance();
         fabCreate = (FloatingActionButton) findViewById(R.id.fab_create);
@@ -89,33 +88,34 @@ public class MyCarsActivity extends AppCompatActivity{
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 String plate = cars.get(i).getPlate();
-                Intent intent = new Intent(getApplicationContext(),CarDetailActivity.class);
+                Intent intent = new Intent(getApplicationContext(), CarDetailActivity.class);
                 intent.putExtra("car_plate", plate);
                 startActivity(intent);
             }
         });
     }
 
-    private void loadCars(){
+    private void loadCars() {
         Query queryCars = database.child("Cars").orderByChild("ownerEmail").equalTo(firebaseAuth.getCurrentUser().getEmail());
         queryCars.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {
-                    cars = new ArrayList<Car>();
-                    for(DataSnapshot carsSnapshot: dataSnapshot.getChildren()){
-                        Car car = carsSnapshot.getValue(Car.class);
-                        cars.add(car);
-                    }
-
-                    Log.d("NumeroCarros", Integer.toString(cars.size()));
-                    ArrayAdapter<Car> adapter = new ArrayAdapter<Car>(MyCarsActivity.this, android.R.layout.simple_list_item_1, cars);
-                    listViewCars.setAdapter(adapter);
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                cars = new ArrayList<Car>();
+                for (DataSnapshot carsSnapshot : dataSnapshot.getChildren()) {
+                    Car car = carsSnapshot.getValue(Car.class);
+                    cars.add(car);
                 }
-                @Override
-                public void onCancelled(DatabaseError databaseError) {
 
-                }
-            });
+                Log.d("NumeroCarros", Integer.toString(cars.size()));
+                ArrayAdapter<Car> adapter = new ArrayAdapter<Car>(MyCarsActivity.this, R.layout.custom_list_cars, R.id.list_name, cars);
+                listViewCars.setAdapter(adapter);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
     }
 
     @Override
@@ -139,7 +139,7 @@ public class MyCarsActivity extends AppCompatActivity{
 
     }
 
-    public void logout(){
+    public void logout() {
         FirebaseAuth.getInstance().signOut();
         Auth.GoogleSignInApi.signOut(mGoogleApiClient);
         finish();

@@ -19,7 +19,7 @@ public class Travel {
 
     @Override
     public String toString() {
-        return initHour + "\n" + driverName + "\n" + endTime;
+        return "Fecha de inicio: " + initHour + "\n" + "Conductor: " + "\n" + driverName + "\n" + "Fecha de Fin: " + endTime;
     }
 
     public String getEndTime() {

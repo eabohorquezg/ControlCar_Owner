@@ -49,11 +49,22 @@ public class CarDetailActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 
+        setTitle("Viajes de: " + car_plate);
+
         database = FirebaseDatabase.getInstance();
 
         listViewTravels = (ListView) findViewById(R.id.list_travels);
 
         loadCarDetail();
+
+        listViewTravels.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(getApplicationContext(), AlertsActivity.class);
+                intent.putExtra("key", travels.get(i).getId());
+                startActivity(intent);
+            }
+        });
     }
 
     public void loadCarDetail() {
@@ -86,18 +97,9 @@ public class CarDetailActivity extends AppCompatActivity {
                         travels.add(travel);
                     }
                 }
-                ArrayAdapter<Travel> adapter = new ArrayAdapter<>(CarDetailActivity.this, android.R.layout.simple_list_item_1, travels);
-                listViewTravels.setAdapter(adapter);
 
-                listViewTravels.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                        String plate = travels.get(i).getPlate();
-                        Intent intent = new Intent(getApplicationContext(), CarDetailActivity.class);
-                        intent.putExtra("car_plate", plate);
-                        startActivity(intent);
-                    }
-                });
+                ArrayAdapter<Travel> adapter = new ArrayAdapter<>(CarDetailActivity.this, R.layout.custom_list_travels, R.id.list_name, travels);
+                listViewTravels.setAdapter(adapter);
             }
 
             @Override
