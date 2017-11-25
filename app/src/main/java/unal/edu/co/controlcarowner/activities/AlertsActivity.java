@@ -59,7 +59,7 @@ public class AlertsActivity extends AppCompatActivity {
                 alerts = new ArrayList<Alert>();
                 for (DataSnapshot alertSnapshot : dataSnapshot.getChildren()){
                     Alert alert = alertSnapshot.getValue(Alert.class);
-                    Toast.makeText(getApplicationContext(), alert.getDescription(), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getApplicationContext(), alert.getDescription(), Toast.LENGTH_SHORT).show();
                     alerts.add(alert);
                 }
                 ArrayAdapter<Alert> adapter = new ArrayAdapter<Alert>(AlertsActivity.this, R.layout.custom_list_alerts, R.id.list_name, alerts);
