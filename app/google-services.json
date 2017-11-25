@@ -10,7 +10,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:818009924888:android:a381aa17c0615b34",
         "android_client_info": {
-          "package_name": "unal.edu.co.controlcar"
+          "package_name": "unal.edu.co.controlcarowner"
         }
       },
       "oauth_client": [
@@ -18,7 +18,7 @@
           "client_id": "818009924888-t6v279fk67ld2ioc2l5h1iock8ug49cr.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "unal.edu.co.controlcar",
+            "package_name": "unal.edu.co.controlcarowner",
             "certificate_hash": "9286a5029dafb91d950baa379dd128f2c0eaacc6"
           }
         },
@@ -26,7 +26,7 @@
           "client_id": "818009924888-mtehja147luc465hnre17fo65il41jq1.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "unal.edu.co.controlcar",
+            "package_name": "unal.edu.co.controlcarowner",
             "certificate_hash": "f32138c23f33eb1872f5c56e9eadba581eee27db"
           }
         },
@@ -34,7 +34,7 @@
           "client_id": "818009924888-t684ovvdlv0c9gh0ljaprva24sq50g4o.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "unal.edu.co.controlcar",
+            "package_name": "unal.edu.co.controlcarowner",
             "certificate_hash": "cbd1e85ca389d4778cece075ac27fb61692d7bf8"
           }
         },
@@ -42,7 +42,7 @@
           "client_id": "818009924888-mlc88l3vi7cchufv5dnom14ghjtptevm.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "unal.edu.co.controlcar",
+            "package_name": "unal.edu.co.controlcarowner",
             "certificate_hash": "2e20be06a4e0fda401a458ee64c7e344ea745e0c"
           }
         },

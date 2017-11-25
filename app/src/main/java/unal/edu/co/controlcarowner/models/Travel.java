@@ -1,4 +1,6 @@
-package unal.edu.co.controlcar.models;
+package unal.edu.co.controlcarowner.models;
+
+import java.util.ArrayList;
 
 /**
  * Created by erick on 26/10/2017.
@@ -13,14 +15,11 @@ public class Travel {
     private double initLongitude;
     private String plate;
     private String driverName;
-
-    public Travel(){
-
-    }
+    private ArrayList<Alert> alerts;
 
     @Override
     public String toString() {
-        return initHour+"\n"+driverName+"\n"+endTime;
+        return initHour + "\n" + driverName + "\n" + endTime;
     }
 
     public String getEndTime() {
@@ -77,5 +76,13 @@ public class Travel {
 
     public void setDriverName(String driverName) {
         this.driverName = driverName;
+    }
+
+    public ArrayList<Alert> getAlerts() {
+        return alerts;
+    }
+
+    public void setAlerts(ArrayList<Alert> alerts) {
+        this.alerts = alerts;
     }
 }

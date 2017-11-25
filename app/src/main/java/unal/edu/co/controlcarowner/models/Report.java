@@ -1,4 +1,4 @@
-package unal.edu.co.controlcar.models;
+package unal.edu.co.controlcarowner.models;
 
 import java.util.ArrayList;
 

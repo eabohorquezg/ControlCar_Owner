@@ -1,4 +1,4 @@
-package unal.edu.co.controlcar.View;
+package unal.edu.co.controlcarowner.View;
 
 /**
  * Created by Edwin on 29/10/2017.
@@ -15,7 +15,7 @@ import android.graphics.RectF;
 import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.view.View;
-import unal.edu.co.controlcar.R;
+import unal.edu.co.controlcarowner.R;
 
 public class Speedometer extends View {
 

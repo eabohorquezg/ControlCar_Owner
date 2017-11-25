@@ -1,11 +1,11 @@
-package unal.edu.co.controlcar.activities;
+package unal.edu.co.controlcarowner.activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.webkit.WebView;
 
-import unal.edu.co.controlcar.R;
+import unal.edu.co.controlcarowner.R;
 
 public class ExplorerActivity extends AppCompatActivity {
 

@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.AddCarActivity">
+    android:orientation="vertical">
+
+    <include layout="@layout/toolbar" />
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:padding="15dp" >
+        android:orientation="vertical"
+        android:padding="15dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="Agregar vehiculo\n"
-            android:textSize="8pt"
-            android:textColor="#000000"/>
+            android:text="Agregar vehiculo"
+            android:textColor="#000000"
+            android:textSize="8pt" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Placa:"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/plate"
@@ -36,21 +36,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Modelo:"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/model"
             android:layout_width="fill_parent"
             android:layout_height="53dp"
+            android:hint="Ingrese el modelo"
             android:inputType="textMultiLine"
-            android:lines="2"
-            android:hint="Ingrese el modelo" />
+            android:lines="2" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Marca:"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/brand"
@@ -58,14 +58,13 @@
             android:layout_height="wrap_content"
             android:hint="Ingrese la marca" />
 
-
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_gravity="bottom"
             android:gravity="bottom"
-            android:padding="15dp" >
+            android:orientation="vertical"
+            android:padding="15dp">
 
             <Button
                 android:id="@+id/btn_create"
@@ -74,7 +73,5 @@
                 android:text="Agregar Vehiculo" />
 
         </LinearLayout>
-
     </LinearLayout>
-
-</RelativeLayout>
+</LinearLayout>

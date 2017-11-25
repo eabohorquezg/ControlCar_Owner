@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="unal.edu.co.controlcar">
+    package="unal.edu.co.controlcarowner">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -16,10 +16,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".activities.MyCarsActivity"
+            android:name="unal.edu.co.controlcarowner.activities.MyCarsActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.LoginActivity"
+            android:name="unal.edu.co.controlcarowner.activities.LoginActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,15 +28,15 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activities.ExplorerActivity"
+            android:name="unal.edu.co.controlcarowner.activities.ExplorerActivity"
             android:noHistory="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.AddCarActivity"
+            android:name="unal.edu.co.controlcarowner.activities.AddCarActivity"
             android:noHistory="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.CarDetailActivity"
+            android:name="unal.edu.co.controlcarowner.activities.CarDetailActivity"
             android:noHistory="true"
             android:screenOrientation="portrait" />
 
@@ -47,6 +47,7 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBJcmfk5UTWodCo3kjqkMQQYjNb7g6G88E" />
 
+        <activity android:name="unal.edu.co.controlcarowner.activities.TravelDetailActivity"></activity>
     </application>
 
 </manifest>

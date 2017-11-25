@@ -1,4 +1,4 @@
-package unal.edu.co.controlcar.activities;
+package unal.edu.co.controlcarowner.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -22,7 +22,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.GoogleAuthProvider;
 
-import unal.edu.co.controlcar.R;
+import unal.edu.co.controlcarowner.R;
 
 public class LoginActivity extends AppCompatActivity {
 

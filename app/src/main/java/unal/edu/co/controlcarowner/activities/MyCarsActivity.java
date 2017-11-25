@@ -1,4 +1,4 @@
-package unal.edu.co.controlcar.activities;
+package unal.edu.co.controlcarowner.activities;
 
 /**
  * Created by Edwin on 11/10/2017.
@@ -32,8 +32,8 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-import unal.edu.co.controlcar.R;
-import unal.edu.co.controlcar.models.Car;
+import unal.edu.co.controlcarowner.R;
+import unal.edu.co.controlcarowner.models.Car;
 
 public class MyCarsActivity extends AppCompatActivity{
 
@@ -43,16 +43,24 @@ public class MyCarsActivity extends AppCompatActivity{
     private FirebaseAuth firebaseAuth;
 
     private ListView listViewCars;
-    List<Car> cars;
+    private List<Car> cars;
     private FloatingActionButton fabCreate;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mycars);
+        setContentView(R.layout.activity_my_cars);
         setTitle("Control Car Owner");
 
         firebaseAuth = FirebaseAuth.getInstance();
         fabCreate = (FloatingActionButton) findViewById(R.id.fab_create);
+        listViewCars = (ListView) findViewById(R.id.list_cars);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle("Mis autos");
+        }
+
         fabCreate.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), AddCarActivity.class);
@@ -60,11 +68,7 @@ public class MyCarsActivity extends AppCompatActivity{
             }
         });
 
-        listViewCars = (ListView) findViewById(R.id.list_cars);
         database = FirebaseDatabase.getInstance().getReference();
-
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
@@ -90,7 +94,6 @@ public class MyCarsActivity extends AppCompatActivity{
                 startActivity(intent);
             }
         });
-
     }
 
     private void loadCars(){
@@ -141,5 +144,11 @@ public class MyCarsActivity extends AppCompatActivity{
         Auth.GoogleSignInApi.signOut(mGoogleApiClient);
         finish();
         startActivity(new Intent(MyCarsActivity.this, LoginActivity.class));
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }
