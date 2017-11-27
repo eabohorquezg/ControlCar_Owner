@@ -16,6 +16,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -67,7 +68,10 @@ public class CurrentLocationActivity extends AppCompatActivity implements OnMapR
                 double latitude = Double.valueOf(location[0]);
                 double longitude = Double.valueOf(location[1]);
                 LatLng place = new LatLng(latitude, longitude);
-                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(place, 15));
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(place, 16));
+                mMap.addMarker(new MarkerOptions()
+                        .position(place)
+                        .title("Ubicacion vehiculo"));
             }
 
             @Override
