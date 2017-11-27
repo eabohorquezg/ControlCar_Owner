@@ -43,6 +43,9 @@
         <activity
             android:name=".activities.AlertsActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.CurrentLocationActivity"
+            android:screenOrientation="portrait" />
 
         <meta-data
             android:name="com.google.android.gms.version"

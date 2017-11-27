@@ -1,9 +1,13 @@
 package unal.edu.co.controlcarowner.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -82,6 +86,35 @@ public class AlertsActivity extends AppCompatActivity {
                 Log.w("Error Firebase DB", "Failed to read value.", error.toException());
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
+
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.location_menu, menu);
+        return true;
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.location:
+                String lon;
+                String lat;
+
+                database.getReference().child("Travels").child(getIntent().getExtras().getString("key")).child("requestLocation").setValue(1 + (int)(Math.random() * 1000000) );
+
+                //Intent intent = new Intent(getApplicationContext(), CurrentLocationActivity.class);
+                //intent.putExtra("longitud", "");
+                //intent.putExtra("latitud", "");
+                //startActivity(intent);
+                return true;
+        }
+        return false;
+
     }
 
     @Override
