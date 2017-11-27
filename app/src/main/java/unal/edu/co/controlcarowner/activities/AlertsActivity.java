@@ -102,15 +102,10 @@ public class AlertsActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.location:
-                String lon;
-                String lat;
-
                 database.getReference().child("Travels").child(getIntent().getExtras().getString("key")).child("requestLocation").setValue(1 + (int)(Math.random() * 1000000) );
-
-                //Intent intent = new Intent(getApplicationContext(), CurrentLocationActivity.class);
-                //intent.putExtra("longitud", "");
-                //intent.putExtra("latitud", "");
-                //startActivity(intent);
+                Intent intent = new Intent(getApplicationContext(), CurrentLocationActivity.class);
+                intent.putExtra("key", getIntent().getExtras().getString("key"));
+                startActivity(intent);
                 return true;
         }
         return false;
