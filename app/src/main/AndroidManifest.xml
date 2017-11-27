@@ -15,9 +15,6 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".activities.MyCarsActivity"
-            android:screenOrientation="portrait" />
 
         <activity
             android:name=".activities.LoginActivity"
@@ -30,6 +27,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".activities.MyCarsActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".activities.ExplorerActivity"
             android:screenOrientation="portrait" />
@@ -39,18 +40,17 @@
         <activity
             android:name=".activities.CarDetailActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".activities.AlertsActivity" />
+        <activity
+            android:name=".activities.AlertsActivity"
+            android:screenOrientation="portrait" />
 
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyBJcmfk5UTWodCo3kjqkMQQYjNb7g6G88E" />
+            android:value="AIzaSyAMCRez4mjqbdUCVMDrVd2TUT85r-CKOBw" />
 
-
-        <activity android:name="unal.edu.co.controlcarowner.activities.TravelDetailActivity" />
-        <!--activity android:name=".activities.AlertsActivity"></activity-->
     </application>
 
 </manifest>

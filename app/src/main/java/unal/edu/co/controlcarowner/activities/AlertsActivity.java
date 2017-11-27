@@ -6,7 +6,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
+import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -29,6 +29,9 @@ public class AlertsActivity extends AppCompatActivity {
     private FirebaseDatabase database;
     private ListView listViewAlerts;
     private List<Alert> alerts;
+    private TextView driver;
+    private TextView start;
+    private TextView end;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +49,13 @@ public class AlertsActivity extends AppCompatActivity {
 
         database = FirebaseDatabase.getInstance();
         listViewAlerts = (ListView) findViewById(R.id.list_alerts);
+        driver = (TextView) findViewById(R.id.txtDriver);
+        start = (TextView) findViewById(R.id.txtInitTravel);
+        end = (TextView) findViewById(R.id.txtFinishTravel);
+
+        driver.setText(getIntent().getExtras().getString("driver"));
+        start.setText(getIntent().getExtras().getString("inicio"));
+        end.setText(getIntent().getExtras().getString("fin"));
 
         loadAlerts();
     }

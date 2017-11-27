@@ -62,6 +62,9 @@ public class CarDetailActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(getApplicationContext(), AlertsActivity.class);
+                intent.putExtra("driver", travels.get(i).getDriverName());
+                intent.putExtra("inicio", travels.get(i).getInitHour());
+                intent.putExtra("fin", travels.get(i).getEndTime());
                 intent.putExtra("key", travels.get(i).getId());
                 startActivity(intent);
             }
