@@ -119,6 +119,27 @@ public class MyCarsActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
+
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.logout_menu, menu);
+        return true;
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.logout:
+                logout();
+                return true;
+        }
+        return false;
+
+    }
+
     public void logout() {
         FirebaseAuth.getInstance().signOut();
         Auth.GoogleSignInApi.signOut(mGoogleApiClient);

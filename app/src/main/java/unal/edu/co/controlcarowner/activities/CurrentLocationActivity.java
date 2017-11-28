@@ -64,14 +64,17 @@ public class CurrentLocationActivity extends AppCompatActivity implements OnMapR
 
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if(mMap!=null){
+                    mMap.clear();
+                }
+
                 String[] location = dataSnapshot.getValue(String.class).split(",");
                 double latitude = Double.valueOf(location[0]);
                 double longitude = Double.valueOf(location[1]);
                 LatLng place = new LatLng(latitude, longitude);
                 mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(place, 16));
-                mMap.addMarker(new MarkerOptions()
-                        .position(place)
-                        .title("Ubicacion vehiculo"));
+                mMap.addMarker(new MarkerOptions().position(place));
             }
 
             @Override
